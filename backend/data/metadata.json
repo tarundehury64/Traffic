@@ -1,0 +1,29 @@
+{
+  "dataset_name": "Metro Interstate Traffic Volume Dataset",
+  "source": "UCI Machine Learning Repository",
+  "source_url": "https://archive.ics.uci.edu/dataset/492/metro+interstate+traffic+volume",
+  "citation": "Hogue, J. (2019). Metro Interstate Traffic Volume. UCI Machine Learning Repository. https://doi.org/10.24432/C54S4P",
+  "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+  "monitored_corridor": "Westbound Interstate 94 (I-94), Minneapolis - St. Paul, Minnesota, USA",
+  "sensor_station": "Station ATR 301 (Minnesota Department of Transportation)",
+  "reporting_interval": "Hourly",
+  "total_records": 48204,
+  "date_range": {
+    "start": "2012-10-02 09:00:00",
+    "end": "2018-09-30 23:00:00"
+  },
+  "target_variable": "traffic_volume (hourly vehicles count)",
+  "raw_features": [
+    { "name": "holiday", "type": "categorical/string", "description": "US national holidays or regional holidays (e.g. State Fair), None otherwise" },
+    { "name": "temp", "type": "numeric (Kelvin)", "description": "Average hourly temperature in Kelvin" },
+    { "name": "rain_1h", "type": "numeric (mm)", "description": "Amount in mm of rain that occurred in the hour" },
+    { "name": "snow_1h", "type": "numeric (mm)", "description": "Amount in mm of snow that occurred in the hour" },
+    { "name": "clouds_all", "type": "numeric/percentage", "description": "Percentage of cloud cover (0 to 100%)" },
+    { "name": "weather_main", "type": "categorical/string", "description": "Short textual description of the current weather (Clear, Clouds, Rain, Snow, etc.)" },
+    { "name": "weather_description", "type": "categorical/string", "description": "Granular textual description of the current weather" },
+    { "name": "date_time", "type": "datetime (ISO 8601)", "description": "Hour of the data collection in local CST/CDT time" },
+    { "name": "traffic_volume", "type": "numeric (integer)", "description": "Hourly reported traffic volume (target variable)" }
+  ],
+  "geographic_coordinates_available": false,
+  "geographic_note": "The raw dataset does not provide row-level latitude and longitude coordinates. Monitored traffic corresponds to MN DOT ATR 301 on Westbound I-94."
+}
