@@ -9,6 +9,7 @@ export interface KpiItem {
   badge: BadgeType;
   label: string;
   peak_volume?: string;
+  metric_name?: string;
 }
 
 export interface TrafficSummary {
