@@ -1,13 +1,9 @@
 {
   "version": 2,
-  "buildCommand": "cd frontend && npm install && node ./node_modules/typescript/bin/tsc -b && node ./node_modules/vite/bin/vite.js build",
+  "buildCommand": "npm --prefix frontend install && npm --prefix frontend run build",
   "outputDirectory": "frontend/dist",
   "cleanUrls": true,
   "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/index.py"
-    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
