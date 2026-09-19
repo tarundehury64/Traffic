@@ -3,7 +3,7 @@
   "version": "2.4.0",
   "private": true,
   "scripts": {
-    "build": "npm --prefix frontend install && npm --prefix frontend run build",
+    "build": "npm --prefix frontend install && npm --prefix frontend run build && cp -r frontend/dist/* ./dist/",
     "dev": "npm --prefix frontend run dev"
   }
 }

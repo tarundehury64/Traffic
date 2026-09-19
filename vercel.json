@@ -1,6 +1,5 @@
 {
-  "version": 2,
-  "buildCommand": "npm --prefix frontend install && npm --prefix frontend run build && cp -r frontend/dist/* ./dist/",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "outputDirectory": "dist",
   "cleanUrls": true,
   "rewrites": [
