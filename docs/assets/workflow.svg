@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 260" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="wfGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+
+    <filter id="wfGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .node-box {
+      fill: #0f172a;
+      stroke: #1e293b;
+      stroke-width: 1.5;
+      rx: 12px;
+    }
+    .node-title {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      fill: #f8fafc;
+    }
+    .node-desc {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 11px;
+      fill: #94a3b8;
+    }
+    .node-tag {
+      font-family: 'SF Mono', monospace;
+      font-size: 9px;
+      font-weight: 600;
+      fill: #38bdf8;
+    }
+    .connector {
+      stroke: #334155;
+      stroke-width: 2;
+      stroke-dasharray: 4 4;
+    }
+    .flow-pulse {
+      stroke: #38bdf8;
+      stroke-width: 2.5;
+      stroke-dasharray: 30 180;
+      animation: wfFlow 2.8s linear infinite;
+    }
+    @keyframes wfFlow {
+      0% { stroke-dashoffset: 210; }
+      100% { stroke-dashoffset: 0; }
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="1100" height="260" rx="16" fill="#020617" stroke="#1e293b" stroke-width="1.5" />
+
+  <!-- Flow Connectors -->
+  <line x1="160" y1="130" x2="220" y2="130" class="connector" />
+  <line x1="160" y1="130" x2="220" y2="130" class="flow-pulse" filter="url(#wfGlow)" />
+
+  <line x1="370" y1="130" x2="430" y2="130" class="connector" />
+  <line x1="370" y1="130" x2="430" y2="130" class="flow-pulse" filter="url(#wfGlow)" />
+
+  <line x1="580" y1="130" x2="640" y2="130" class="connector" />
+  <line x1="580" y1="130" x2="640" y2="130" class="flow-pulse" filter="url(#wfGlow)" />
+
+  <line x1="790" y1="130" x2="850" y2="130" class="connector" />
+  <line x1="790" y1="130" x2="850" y2="130" class="flow-pulse" filter="url(#wfGlow)" />
+
+  <!-- Stage 1: Ingestion -->
+  <g transform="translate(20, 50)">
+    <rect width="150" height="160" class="node-box" />
+    <rect width="150" height="4" rx="2" fill="#38bdf8" />
+    <circle cx="24" cy="28" r="4" fill="#38bdf8" />
+    <text x="36" y="32" class="node-tag">STAGE 01</text>
+    <text x="18" y="60" class="node-title">Data Ingestion</text>
+    <text x="18" y="80" class="node-desc">• Station ATR 301</text>
+    <text x="18" y="98" class="node-desc">• 48,204 Raw Rows</text>
+    <text x="18" y="116" class="node-desc">• 2012–2018 Range</text>
+    <text x="18" y="134" class="node-desc">• Hourly Cadence</text>
+  </g>
+
+  <!-- Stage 2: Quality & Cleaning -->
+  <g transform="translate(230, 50)">
+    <rect width="150" height="160" class="node-box" />
+    <rect width="150" height="4" rx="2" fill="#60a5fa" />
+    <circle cx="24" cy="28" r="4" fill="#60a5fa" />
+    <text x="36" y="32" class="node-tag">STAGE 02</text>
+    <text x="18" y="60" class="node-title">Cleansing</text>
+    <text x="18" y="80" class="node-desc">• 0°K Temp Repair</text>
+    <text x="18" y="98" class="node-desc">• Capped Rain Spikes</text>
+    <text x="18" y="116" class="node-desc">• Holiday Normalization</text>
+    <text x="18" y="134" class="node-desc">• Multi-Weather Dedup</text>
+  </g>
+
+  <!-- Stage 3: Feature Engineering -->
+  <g transform="translate(440, 50)">
+    <rect width="150" height="160" class="node-box" />
+    <rect width="150" height="4" rx="2" fill="#818cf8" />
+    <circle cx="24" cy="28" r="4" fill="#818cf8" />
+    <text x="36" y="32" class="node-tag">STAGE 03</text>
+    <text x="18" y="60" class="node-title">Feature Vector</text>
+    <text x="18" y="80" class="node-desc">• sin / cos(2π·h/24)</text>
+    <text x="18" y="98" class="node-desc">• Lag Flow (t-1)</text>
+    <text x="18" y="116" class="node-desc">• Weather One-Hot</text>
+    <text x="18" y="134" class="node-desc">• Expected Base Matrix</text>
+  </g>
+
+  <!-- Stage 4: ML Models -->
+  <g transform="translate(650, 50)">
+    <rect width="150" height="160" class="node-box" />
+    <rect width="150" height="4" rx="2" fill="#a855f7" />
+    <circle cx="24" cy="28" r="4" fill="#a855f7" />
+    <text x="36" y="32" class="node-tag">STAGE 04</text>
+    <text x="18" y="60" class="node-title">Model Ensembles</text>
+    <text x="18" y="80" class="node-desc">• Random Forest</text>
+    <text x="18" y="98" class="node-desc">• Gradient Boosting</text>
+    <text x="18" y="116" class="node-desc">• Ridge Regularization</text>
+    <text x="18" y="134" class="node-desc">• R² = 0.9818 Score</text>
+  </g>
+
+  <!-- Stage 5: Statistical Inference & Uncertainty -->
+  <g transform="translate(860, 50)">
+    <rect width="220" height="160" class="node-box" stroke="#38bdf8" stroke-width="2" />
+    <rect width="220" height="4" rx="2" fill="#10b981" />
+    <circle cx="24" cy="28" r="4" fill="#10b981" />
+    <text x="36" y="32" class="node-tag" fill="#10b981">STAGE 05 — OUTPUT</text>
+    <text x="18" y="60" class="node-title">Inference &amp; Uncertainty</text>
+    <text x="18" y="80" class="node-desc">• 95% Confidence (±1.96·se)</text>
+    <text x="18" y="98" class="node-desc">• Real-Time REST Response</text>
+    <text x="18" y="116" class="node-desc">• 48h Predictive Timeline</text>
+    <text x="18" y="134" class="node-desc">• Statistical Anomaly Alert (&gt;2.4σ)</text>
+  </g>
+</svg>
